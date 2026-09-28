@@ -1,0 +1,17 @@
+id,name,email,age,city,salary,join_date
+1, Alice ,alice@email.com,22,Hyderabad,55000,2026-01-10
+2,Bob,BOB@EMAIL.COM,,hyderabad,62000,10/01/2026
+3,Charlie,charlie@email,twenty five,Delhi ,70000,2026/01/12
+4,Alice,alice@email.com,22,Hyderabad,55000,2026-01-10
+5, David,,31,Bengaluru,N/A,2026-01-15
+6,Eva,eva@email.com,-5,Delhi,48000,2026-01-16
+7,Frank,frank@email.com,29,BENGALURU,71000,2026-01-17
+8,Grace,grace@email.com, ,Chennai,65000,17-01-2026
+9,Henry,henry@email.com,40,Chennai,65000,2026-01-18
+10,Ivy,ivy@email.com,27,Mumbai,58000,invalid-date
+11,Jack,jack@email.com,33,Mumbai,58000,2026-01-20
+12,Kate,kate@email.com,33,Mumbai,58000,2026-01-20
+13,Liam,liam@email.com,28,Hyderabad,60000,2026-01-21
+14,Mia,mia@email.com,26,Delhi,72000,2026-01-22
+15,Noah,noah@email.com,34,Delhi,72000,2026-01-22
+16,Olivia,olivia@email.com,30,Chennai,64000,2026-01-23

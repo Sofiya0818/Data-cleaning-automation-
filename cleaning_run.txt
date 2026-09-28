@@ -1,0 +1,62 @@
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
+Traceback (most recent call last):
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/internals/blocks.py"[0m, line [35m2328[0m, in [35mfillna[0m
+    new_values = self.values.fillna(
+        value=value, method=None, limit=limit, copy=copy
+    )
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m266[0m, in [35mfillna[0m
+    [31mnew_values[0m[1;31m[mask][0m = value
+    [31m~~~~~~~~~~[0m[1;31m^^^^^^[0m
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m314[0m, in [35m__setitem__[0m
+    value = self._validate_setitem_value(value)
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m305[0m, in [35m_validate_setitem_value[0m
+    raise TypeError(f"Invalid value '{str(value)}' for dtype {self.dtype}")
+[1;35mTypeError[0m: [35mInvalid value '29.5' for dtype Int64[0m
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File [35m"/mnt/data/data-cleaning-automation/run_cleaning.py"[0m, line [35m2[0m, in [35m<module>[0m
+    if __name__=='__main__': [31mmain[0m[1;31m()[0m
+                             [31m~~~~[0m[1;31m^^[0m
+  File [35m"/mnt/data/data-cleaning-automation/cleaning_pipeline.py"[0m, line [35m22[0m, in [35mmain[0m
+    d=pd.read_csv(INPUT); c,r=[31mclean_data[0m[1;31m(d)[0m; c["join_date"]=c["join_date"].dt.strftime("%Y-%m-%d"); c.to_csv(CLEANED,index=False); r.to_csv(REPORT,index=False); print(r.to_string(index=False))
+                              [31m~~~~~~~~~~[0m[1;31m^^^[0m
+  File [35m"/mnt/data/data-cleaning-automation/cleaning_pipeline.py"[0m, line [35m17[0m, in [35mclean_data[0m
+    df["age"]=[31mdf["age"].fillna[0m[1;31m(df["age"].median())[0m; df["salary"]=df["salary"].fillna(df["salary"].median())
+              [31m~~~~~~~~~~~~~~~~[0m[1;31m^^^^^^^^^^^^^^^^^^^^[0m
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/generic.py"[0m, line [35m7349[0m, in [35mfillna[0m
+    new_data = self._mgr.fillna(
+        value=value, limit=limit, inplace=inplace, downcast=downcast
+    )
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/internals/base.py"[0m, line [35m186[0m, in [35mfillna[0m
+    return [31mself.apply_with_block[0m[1;31m([0m
+           [31m~~~~~~~~~~~~~~~~~~~~~[0m[1;31m^[0m
+        [1;31m"fillna",[0m
+        [1;31m^^^^^^^^^[0m
+    ...<5 lines>...
+        [1;31malready_warned=_AlreadyWarned(),[0m
+        [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    [1;31m)[0m
+    [1;31m^[0m
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/internals/managers.py"[0m, line [35m363[0m, in [35mapply[0m
+    applied = getattr(b, f)(**kwargs)
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/internals/blocks.py"[0m, line [35m2334[0m, in [35mfillna[0m
+    new_values = self.values.fillna(value=value, method=None, limit=limit)
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m266[0m, in [35mfillna[0m
+    [31mnew_values[0m[1;31m[mask][0m = value
+    [31m~~~~~~~~~~[0m[1;31m^^^^^^[0m
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m314[0m, in [35m__setitem__[0m
+    value = self._validate_setitem_value(value)
+  File [35m"/opt/pyvenv/lib/python3.13/site-packages/pandas/core/arrays/masked.py"[0m, line [35m305[0m, in [35m_validate_setitem_value[0m
+    raise TypeError(f"Invalid value '{str(value)}' for dtype {self.dtype}")
+[1;35mTypeError[0m: [35mInvalid value '29.5' for dtype Int64[0m
